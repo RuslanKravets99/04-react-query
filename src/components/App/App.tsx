@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import MovieModal from '../MovieModal/MovieModal';
 import type { Movie } from '../../types/movie';
-import  { fetchMovies } from '../../service/movieService';
+import  { fetchMovies } from '../../services/movieService';
 import css from './App.module.css';
 import { useQuery } from "@tanstack/react-query";
 import ReactPaginate from 'react-paginate';
