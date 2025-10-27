@@ -8,7 +8,7 @@ import MovieModal from '../MovieModal/MovieModal';
 import type { Movie } from '../../types/movie';
 import { fetchMovies } from '../../services/movieService';
 import css from './App.module.css';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import ReactPaginate from 'react-paginate';
 
 interface MoviesResponse {
@@ -30,7 +30,7 @@ export default function App() {
     queryKey: ['movies', query, page],
     queryFn: () => fetchMovies(query as string, page as number),
     enabled: query.trim().length > 0,
-    placeholderData: { results: [], total_pages: 0 },
+    placeholderData: keepPreviousData,
   });
 
   const movies = data?.results ?? [];
